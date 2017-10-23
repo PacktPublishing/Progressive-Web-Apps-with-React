@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" href="/assets/icon.png">
+    <title>Chatastrophe</title>
+    <style>
+      body {
+        height: 100vh;
+        background: linear-gradient(to bottom, #FD8271 , #A62824);
+        font-family: 'Khula', sans-serif;
+        color: #2f2f2f;
+        overflow: hidden;
+        margin: 0 8px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      #root {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+      }
+
+      #container {
+        max-width: 500px;
+        background-color: white;
+        border-radius: 10px;
+        height: 90%;
+        padding: 10px;
+        box-shadow: 0 20px 80px rgba(0, 0, 0, 0.6);
+        flex: 1;
+      }
+
+      #Header {
+        width: 100%;
+        height: 50px;
+      }
+
+      #Header img {
+        width: 35px;
+        height: 35px;
+        float: left;
+      }
+
+      #Header button.red {
+        float: right;
+        margin-top: 5px;
+      }
+
+      #Header h1 {
+        display: inline-block;
+        float: left;
+        margin-left: 10px;
+        font-size: 1.1em;
+        margin-top: 7px;
+      }
+
+      #ChatContainer {
+        position: relative;
+        padding-bottom: 50px;
+      }
+
+      .inner-container {
+        height: 100%;
+        overflow: hidden;
+      }
+
+      #loading-container {
+        display: flex;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #loading-container img, #test-image {
+        width: 100px;
+        -webkit-animation-name: pulse;
+        animation-name: pulse;
+        animation-duration: 1000ms;
+        transform-origin:70% 70%;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+      }
+
+      @-webkit-keyframes pulse {
+          0% { -webkit-transform: scale(1); }
+          50% { -webkit-transform: scale(1.2); }
+          100% { -webkit-transform: scale(1); }
+      }
+      @keyframes pulse {
+          0% { transform: scale(1); }
+          50% { transform: scale(1.2); }
+          100% { transform: scale(1); }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <div id="container">
+        <div class="inner-container">
+          <div id="Header">
+            <img src="/assets/icon.png" alt="logo" />
+            <h1>Chatastrophe</h1>
+          </div>
+          <div id="loading-container">
+            <img src="/assets/icon.png" alt="logo" id="loader"/>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="/secrets.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: window.apiKey,
+        authDomain: "chatastrophe-draft.firebaseapp.com",
+        databaseURL: "https://chatastrophe-draft.firebaseio.com",
+        projectId: "chatastrophe-draft",
+        storageBucket: "chatastrophe-draft.appspot.com",
+        messagingSenderId: window.messagingSenderId
+      };
+      window.firebase = firebase;
+      firebase.initializeApp(config);
+    </script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register('firebase-messaging-sw.js').then(function(registration) {
+            // Registration was successful
+            console.log('Registered!');
+          }, function(err) {
+            // registration failed :(
+            console.log('ServiceWorker registration failed: ', err);
+          }).catch(function(err) {
+            console.log(err);
+          });
+        });
+      } else {
+        console.log('service worker is not supported');
+      }
+    </script>
+  </body>
+</html>

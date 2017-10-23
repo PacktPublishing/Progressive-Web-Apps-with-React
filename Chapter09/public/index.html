@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" href="/assets/icon.png">
+    <title>Chatastrophe</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="/secrets.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: window.apiKey,
+        authDomain: "chatastrophe-draft.firebaseapp.com",
+        databaseURL: "https://chatastrophe-draft.firebaseio.com",
+        projectId: "chatastrophe-draft",
+        storageBucket: "chatastrophe-draft.appspot.com",
+        messagingSenderId: window.messagingSenderId
+      };
+      window.firebase = firebase;
+      firebase.initializeApp(config);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+{
+  "name": "Chatastrophe",
+  "short_name": "Chatastrophe",
+  "icons": [
+    {
+      "src":"/assets/icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {  
+      "src": "/assets/icon-256.png",  
+      "sizes": "256x256",  
+      "type": "image/png"  
+    },  
+    {  
+      "src": "/assets/icon-384.png",  
+      "sizes": "384x384",  
+      "type": "image/png"  
+    },  
+    {  
+      "src": "/assets/icon-512.png",  
+      "sizes": "512x512",  
+      "type": "image/png"  
+    }
+  ],
+  "start_url": "/?utm_source=homescreen",
+  "background_color": "#e05a47",
+  "theme_color": "#e05a47",
+  "display": "standalone"
+}
