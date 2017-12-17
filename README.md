@@ -37,6 +37,3 @@ All you require is a computer that can run Node.js (https://nodejs.org/en/downlo
 
 * [Learning Web Development with React and Bootstrap](https://www.packtpub.com/web-development/learning-web-development-react-and-bootstrap?utm_source=github&utm_medium=repository&utm_campaign=9781786462497)
 
-### Suggestions and Feedback
-[Click here](https://docs.google.com/forms/d/e/1FAIpQLSe5qwunkGf6PUvzPirPDtuy1Du5Rlzew23UBp2S-P3wB-GcwQ/viewform) if you have any feedback or suggestions.
-
